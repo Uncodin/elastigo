@@ -11,6 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 package core
 
 import (
@@ -19,7 +20,7 @@ import (
 	"github.com/mattbaird/elastigo/api"
 )
 
-// The more like this (mlt) API allows to get documents that are “like” a specified document. 
+// The more like this (mlt) API allows to get documents that are “like” a specified document.
 // http://www.elasticsearch.org/guide/reference/api/more-like-this.html
 func MoreLikeThis(pretty bool, index string, _type string, id string, query MoreLikeThisQuery) (api.BaseResponse, error) {
 	var url string

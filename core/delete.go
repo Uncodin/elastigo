@@ -11,6 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 package core
 
 import (
@@ -19,7 +20,7 @@ import (
 	"github.com/mattbaird/elastigo/api"
 )
 
-// The delete API allows to delete a typed JSON document from a specific index based on its id. 
+// The delete API allows to delete a typed JSON document from a specific index based on its id.
 // http://www.elasticsearch.org/guide/reference/api/delete.html
 // todo: add routing and versioning support
 func Delete(pretty bool, index string, _type string, id string, version int, routing string) (api.BaseResponse, error) {

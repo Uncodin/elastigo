@@ -11,6 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 package core
 
 import (
@@ -19,8 +20,8 @@ import (
 	"github.com/mattbaird/elastigo/api"
 )
 
-// The explain api computes a score explanation for a query and a specific document. 
-// This can give useful feedback whether a document matches or didn’t match a specific query. 
+// The explain api computes a score explanation for a query and a specific document.
+// This can give useful feedback whether a document matches or didn’t match a specific query.
 // This feature is available from version 0.19.9 and up.
 // see http://www.elasticsearch.org/guide/reference/api/explain.html
 func Explain(pretty bool, index string, _type string, id string, query string) (api.Match, error) {
