@@ -14,7 +14,6 @@
 
 package api
 
-
 import (
 	//"bytes"
 	"encoding/json"
@@ -24,7 +23,7 @@ import (
 	"log"
 )
 
-func DoCommand(method string, url string, data interface{}) ([]byte, error) {
+func DoCommand(method string,url  string, data interface{}) ([]byte, error) {
 	var response map[string]interface{}
 	var body []byte
 	var httpStatusCode int

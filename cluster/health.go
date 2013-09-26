@@ -14,7 +14,6 @@
 
 package cluster
 
-
 import (
 	"encoding/json"
 	"fmt"

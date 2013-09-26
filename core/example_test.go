@@ -14,7 +14,6 @@
 
 package core_test
 
-
 import (
 	"bytes"
 	"fmt"

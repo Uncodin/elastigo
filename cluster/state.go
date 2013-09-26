@@ -14,7 +14,6 @@
 
 package cluster
 
-
 import (
 	"github.com/mattbaird/elastigo/api"
 )

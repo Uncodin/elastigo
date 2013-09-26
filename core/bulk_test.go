@@ -14,7 +14,6 @@
 
 package core
 
-
 import (
 	"bytes"
 	"crypto/rand"

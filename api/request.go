@@ -14,7 +14,6 @@
 
 package api
 
-
 import (
 	"bytes"
 	"encoding/json"

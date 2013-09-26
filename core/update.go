@@ -14,7 +14,6 @@
 
 package core
 
-
 import (
 	"encoding/json"
 	"fmt"

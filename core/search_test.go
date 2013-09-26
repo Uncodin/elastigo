@@ -14,7 +14,6 @@
 
 package core
 
-
 import (
 	u "github.com/araddon/gou"
 	"testing"
