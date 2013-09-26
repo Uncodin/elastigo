@@ -20,7 +20,7 @@ import (
 	"github.com/mattbaird/elastigo/api"
 )
 
-// The delete APi allows you to delete one or more indices through an API. This operation may fail
+// The delete API allows you to delete one or more indices through an API. This operation may fail
 // if the elasitsearch configuration has been set to forbid deleting indexes.
 func Delete(index string) (api.BaseResponse, error) {
 	var url string
