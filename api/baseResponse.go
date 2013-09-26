@@ -15,7 +15,7 @@
 package api
 
 import (
-  "fmt"
+	"fmt"
 )
 
 type BaseResponse struct {
@@ -55,21 +55,20 @@ func Pretty(pretty bool) string {
 	return prettyString
 }
 
-
 // http://www.elasticsearch.org/guide/reference/api/search/search-type/
 
 func Scan(scan int) string {
-    scanString := ""
-    if scan > 0 {
-      scanString = fmt.Sprintf("&search_type=scan&size=%v",scan)
-    }
-    return scanString
+	scanString := ""
+	if scan > 0 {
+		scanString = fmt.Sprintf("&search_type=scan&size=%v", scan)
+	}
+	return scanString
 }
 
 func Scroll(duration string) string {
-    scrollString := ""
-    if duration != "" {
-        scrollString = "&scroll="+duration
-    }
-    return scrollString
+	scrollString := ""
+	if duration != "" {
+		scrollString = "&scroll=" + duration
+	}
+	return scrollString
 }

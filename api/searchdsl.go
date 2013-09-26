@@ -14,7 +14,6 @@
 
 package api
 
-
 type SearchRequest struct {
 	From   int    `json:"from,omitempty"`
 	Size   int    `json:"size,omitempty"`

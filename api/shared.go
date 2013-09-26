@@ -14,7 +14,6 @@
 
 package api
 
-
 type Query struct {
 	Query Term `json:"query"`
 }

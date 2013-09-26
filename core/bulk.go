@@ -17,6 +17,8 @@ package core
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
+	"fmt"
 	u "github.com/araddon/gou"
 	"github.com/mattbaird/elastigo/api"
 	"io"
@@ -24,8 +26,6 @@ import (
 	"strconv"
 	"sync"
 	"time"
-	"fmt"
-	"errors"
 )
 
 var (
@@ -324,7 +324,7 @@ func WriteBulkBytes(op string, index string, _type string, id, ttl string, date 
 	buf.WriteString(`","_id":"`)
 	buf.WriteString(id)
 
-	if op == "update"  {
+	if op == "update" {
 		buf.WriteString(`","retry_on_conflict":"3`)
 		buf.WriteString(ttl)
 	}
@@ -358,7 +358,6 @@ func WriteBulkBytes(op string, index string, _type string, id, ttl string, date 
 	buf.WriteByte('\n')
 	return buf.Bytes(), nil
 }
-
 
 // The index bulk API adds or updates a typed JSON document to a specific index, making it searchable.
 // it operates by buffering requests, and ocassionally flushing to elasticsearch
@@ -412,7 +411,6 @@ func IndexBulkTtl(index string, _type string, id, ttl string, date *time.Time, d
 	GlobalBulkIndexor.bulkChannel <- by
 	return nil
 }
-
 
 func UpdateBulkTtl(index string, _type string, id, ttl string, date *time.Time, data interface{}) error {
 	//{ "update" : { "_index" : "test", "_type" : "type1", "_id" : "1" } }
