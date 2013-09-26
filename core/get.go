@@ -11,6 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 package core
 
 import (
@@ -53,7 +54,7 @@ func Exists(pretty bool, index string, _type string, id string) (bool, error) {
 
 	var url string
 
-  var response map[string]interface{}
+	var response map[string]interface{}
 
 	if len(_type) > 0 {
 		url = fmt.Sprintf("/%s/%s/%s?fields=_id%s", index, _type, id, api.Pretty(pretty))
@@ -61,20 +62,20 @@ func Exists(pretty bool, index string, _type string, id string) (bool, error) {
 		url = fmt.Sprintf("/%s/%s?fields=_id%s", index, id, api.Pretty(pretty))
 	}
 
-  req, err := api.ElasticSearchRequest("HEAD", url)
+	req, err := api.ElasticSearchRequest("HEAD", url)
 
 	if err != nil {
 		fmt.Println(err)
 	}
 
-  httpStatusCode, _, err := req.Do(&response)
+	httpStatusCode, _, err := req.Do(&response)
 
 	if err != nil {
 		return false, err
 	}
-  if httpStatusCode == 404 {
-    return false, err
-  } else {
-    return true, err
-  }
+	if httpStatusCode == 404 {
+		return false, err
+	} else {
+		return true, err
+	}
 }

@@ -11,6 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 package search
 
 import (
@@ -46,7 +47,7 @@ func (f *FilterWrap) String() string {
 	return fmt.Sprintf(`fopv: %d:%v`, len(f.filters), f.filters)
 }
 
-// Custom marshalling to support the query dsl 
+// Custom marshalling to support the query dsl
 func (f *FilterWrap) addFilters(fl []interface{}) {
 	if len(fl) > 1 {
 		fc := fl[0]
@@ -59,7 +60,7 @@ func (f *FilterWrap) addFilters(fl []interface{}) {
 	f.filters = append(f.filters, fl...)
 }
 
-// Custom marshalling to support the query dsl 
+// Custom marshalling to support the query dsl
 func (f *FilterWrap) MarshalJSON() ([]byte, error) {
 	var root interface{}
 	if len(f.filters) > 1 {
@@ -100,8 +101,8 @@ func (f *FilterWrap) MarshalJSON() ([]byte, error) {
 	"filter" : {
 	    "and" : [
 	        {
-	            "range" : { 
-	                "postDate" : { 
+	            "range" : {
+	                "postDate" : {
 	                    "from" : "2010-03-01",
 	                    "to" : "2010-04-01"
 	                }
@@ -118,10 +119,10 @@ func (f *FilterWrap) MarshalJSON() ([]byte, error) {
 // Filter Operation
 //
 //   Filter().Term("user","kimchy")
-//    
+//
 //   // we use variadics to allow n arguments, first is the "field" rest are values
 //   Filter().Terms("user", "kimchy", "elasticsearch")
-// 
+//
 //   Filter().Exists("repository.name")
 //
 func Filter() *FilterOp {
@@ -155,7 +156,7 @@ func (f *FilterOp) Field(fld string) *FilterOp {
 // Filter Terms
 //
 //   Filter().Terms("user","kimchy")
-//    
+//
 //   // we use variadics to allow n arguments, first is the "field" rest are values
 //   Filter().Terms("user", "kimchy", "elasticsearch")
 //

@@ -11,6 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 package core
 
 import (
@@ -24,7 +25,7 @@ func TestSearchRequest(t *testing.T) {
 			"wildcard": map[string]string{"actor": "a*"},
 		},
 	}
-	out, err := SearchRequest(true, "github", "", qry, "",0)
+	out, err := SearchRequest(true, "github", "", qry, "", 0)
 	//log.Println(out)
 	Assert(&out != nil && err == nil, t, "Should get docs")
 	Assert(out.Hits.Len() == 10, t, "Should have 10 docs but was %v", out.Hits.Len())

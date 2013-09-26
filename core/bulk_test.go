@@ -11,6 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 package core
 
 import (
@@ -109,20 +110,20 @@ func TestBulkUpdate(t *testing.T) {
 	err = indexor.Update("users", "user", "5", "", &date, data)
 	// So here's the deal. Flushing does seem to work, you just have to give the
 	// channel a moment to recieve the message ...
-//	<- time.After(time.Millisecond * 20)
-//	indexor.Flush()
+	//	<- time.After(time.Millisecond * 20)
+	//	indexor.Flush()
 	done <- true
 
 	WaitFor(func() bool {
-			return len(buffers) > 0
-		}, 5)
+		return len(buffers) > 0
+	}, 5)
 
 	u.Assert(BulkErrorCt == 0 && err == nil, t, "Should not have any errors  %v", err)
 
 	response, err := Get(true, "users", "user", "5")
 	u.Assert(err == nil, t, "Should not have any errors  %v", err)
-	newCount := response.Source.(map[string]interface {})["count"]
-	u.Assert( newCount.(float64) == 3, t, "Should have update count: %#v ... %#v", response.Source.(map[string]interface {})["count"], response)
+	newCount := response.Source.(map[string]interface{})["count"]
+	u.Assert(newCount.(float64) == 3, t, "Should have update count: %#v ... %#v", response.Source.(map[string]interface{})["count"], response)
 }
 
 func TestBulkSmallBatch(t *testing.T) {
@@ -149,7 +150,7 @@ func TestBulkSmallBatch(t *testing.T) {
 	indexorsm.Index("users", "user", "3", "", &date, data)
 	indexorsm.Index("users", "user", "4", "", &date, data)
 	<-time.After(time.Millisecond * 200)
-//	indexorsm.Flush()
+	//	indexorsm.Flush()
 	done <- true
 	Assert(messageSets == 2, t, "Should have sent 2 message sets %d", messageSets)
 
