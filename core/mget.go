@@ -10,8 +10,10 @@
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
-// limitations under the License.
+// limitations under the license.
+
 package core
+
 
 import (
 	"encoding/json"
@@ -20,7 +22,7 @@ import (
 )
 
 // Multi GET API allows to get multiple documents based on an index, type (optional) and id (and possibly routing).
-// The response includes a docs array with all the fetched documents, each element similar in structure to a document 
+// The response includes a docs array with all the fetched documents, each element similar in structure to a document
 // provided by the get API.
 // see http://www.elasticsearch.org/guide/reference/api/multi-get.html
 func MGet(pretty bool, index string, _type string, mgetRequest MGetRequestContainer) (MGetResponseContainer, error) {

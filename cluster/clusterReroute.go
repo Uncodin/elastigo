@@ -10,8 +10,10 @@
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
-// limitations under the License.
+// limitations under the license.
+
 package cluster
+
 
 import (
 	"encoding/json"
@@ -23,7 +25,7 @@ import (
 // The cluster health API allows to get a very simple status on the health of the cluster.
 // see http://www.elasticsearch.org/guide/reference/api/admin-cluster-health.html
 // TODO: implement wait_for_status, timeout, wait_for_relocating_shards, wait_for_nodes
-// TODO: implement level (Can be one of cluster, indices or shards. Controls the details level of the health 
+// TODO: implement level (Can be one of cluster, indices or shards. Controls the details level of the health
 // information returned. Defaults to cluster.)
 func Reroute(pretty bool, dryRun bool, commands Commands) (ClusterHealthResponse, error) {
 	var url string

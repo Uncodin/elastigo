@@ -10,7 +10,8 @@
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
-// limitations under the License.
+// limitations under the license.
+
 package search
 
 import (
@@ -27,7 +28,7 @@ func Query() *QueryDsl {
 
 /*
 
-some ways to serialize 
+some ways to serialize
 "query": {
 	"filtered": {
 	  "query": {
@@ -70,14 +71,14 @@ type QueryEmbed struct {
 }
 
 // Custom marshalling to support the query dsl which is a conditional
-// json format, not always the same parent/children 
+// json format, not always the same parent/children
 func (qd *QueryDsl) MarshalJSON() ([]byte, error) {
 	q := qd.QueryEmbed
 	hasQuery := false
 	if q.Qs != nil || len(q.Terms) > 0 || q.MatchAll != nil {
 		hasQuery = true
 	}
-	// If a query has a 
+	// If a query has a
 	if qd.FilterVal != nil && hasQuery {
 		queryB, err := json.Marshal(q)
 		if err != nil {
@@ -109,7 +110,7 @@ func (q *QueryDsl) Range(fop *FilterOp) *QueryDsl {
 	return q
 }
 
-// Add a term search for a specific field 
+// Add a term search for a specific field
 //    Term("user","kimchy")
 func (q *QueryDsl) Term(name, value string) *QueryDsl {
 	if len(q.Terms) == 0 {
@@ -136,7 +137,7 @@ func (q *QueryDsl) Qs(qs *QueryString) *QueryDsl {
 
 // Fields in query_string search
 //     Fields("fieldname","search_for","","")
-//     
+//
 //     Fields("fieldname,field2,field3","search_for","","")
 //
 //     Fields("fieldname,field2,field3","search_for","field_exists","")
@@ -155,7 +156,7 @@ func (q *QueryDsl) Fields(fields, search, exists, missing string) *QueryDsl {
 	return q
 }
 
-// Filter this query 
+// Filter this query
 func (q *QueryDsl) Filter(f *FilterOp) *QueryDsl {
 	q.FilterVal = f
 	return q
@@ -170,7 +171,7 @@ type QueryWrap struct {
 	Qs QueryString `json:"query_string,omitempty"`
 }
 
-// QueryString based search 
+// QueryString based search
 func NewQueryString(field, query string) QueryString {
 	return QueryString{"", field, query, "", "", nil}
 }
