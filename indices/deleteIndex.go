@@ -22,12 +22,12 @@ import (
 
 // The delete APi allows you to delete one or more indices through an API. This operation may fail
 // if the elasitsearch configuration has been set to forbid deleting indexes.
-func Delete(index ...string) (api.BaseResponse, error) {
+func Delete(index string) (api.BaseResponse, error) {
 	var url string
 	var retval api.BaseResponse
 
 	if len(index) > 0 {
-		url = fmt.Sprintf("/%s/", index)
+		url = fmt.Sprintf("/%s", index)
 	} else {
 		return retval, fmt.Errorf("You must specify at least one index to delete")
 	}
