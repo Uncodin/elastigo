@@ -20,7 +20,7 @@ import (
 	"errors"
 	"fmt"
 	u "github.com/araddon/gou"
-	"github.com/mattbaird/elastigo/api"
+	"github.com/Uncodin/elastigo/api"
 	"io"
 	"log"
 	"strconv"

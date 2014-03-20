@@ -17,7 +17,7 @@ package core
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/mattbaird/elastigo/api"
+	"github.com/Uncodin/elastigo/api"
 )
 
 // The percolator allows to register queries against an index, and then send percolate requests which include a doc, and
