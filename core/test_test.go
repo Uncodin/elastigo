@@ -22,7 +22,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/mattbaird/elastigo/api"
+	"github.com/Uncodin/elastigo/api"
 	"io"
 	"log"
 	"net/http"

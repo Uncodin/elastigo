@@ -17,7 +17,7 @@ package core
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/mattbaird/elastigo/api"
+	"github.com/Uncodin/elastigo/api"
 )
 
 // The delete API allows to delete a typed JSON document from a specific index based on its id.
